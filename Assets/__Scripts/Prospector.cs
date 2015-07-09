@@ -222,8 +222,8 @@ public class Prospector : MonoBehaviour {
 			cd.transform.parent = layoutAnchor;
 			Vector2 dpStagger = layout.drawPile.stagger;
 			cd.transform.localPosition = new Vector3 (
-				layout.multiplier.x * layout.discardPile.x,
-				layout.multiplier.y * layout.discardPile.y,
+				layout.multiplier.x * (layout.drawPile.x + i*dpStagger.x),
+				layout.multiplier.y * (layout.drawPile.y + i*dpStagger.y),
 				-layout.discardPile.layerID+0.1f*i);
 			cd.faceUp = false;
 			cd.state = CardState.drawpile;
@@ -294,7 +294,7 @@ public class Prospector : MonoBehaviour {
 	}
 
 	void ReloadLevel () {
-		Application.LoadLevel ("_Prospector_Scene_0");
+		Application.LoadLevel ("__Prospector_Scene_0");
 	}
 
 	void ScoreManager (ScoreEvent sEvt) {
